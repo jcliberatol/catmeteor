@@ -1,0 +1,67 @@
+
+body {
+  background-color : #dfdfdf;
+  height : 100vh;
+  display : flex;
+  flex-flow: row wrap;
+}
+#pageview, #header, #sidebar, #content {
+  flex: 1 100%;
+  margin : 2px;
+  padding : 5px;
+}
+#pageview {
+  display : flex;
+  flex-direction : row;
+  height : 100%;
+}
+#header {
+  background-color : black;
+  color: white;
+}
+
+#sidebar {
+  background-color : #eeeeee;
+  flex: 1 0 0;
+}
+
+#content {
+  background-color : #aaaaaa;
+  flex: 3 0 0;
+}
+
+.text:hover{
+  background-color : #bbbbbb;
+}
+
+.text:active{
+  background-color : #343434;
+}
+
+.delete {
+  float: right;
+}
+
+.subheader {
+  display: flex;
+  flex-direction: col;
+  padding: 5px;
+  background-color: #555;
+  width:99%;
+  margin: auto;
+}
+
+.itemregister, .testregister, .taketest {
+  background-color : #ababab;
+  padding: 7px;
+  margin: 4px;
+  width:34%;
+}
+
+.itemregister:hover, .testregister:hover, .taketest:hover {
+  background-color : #bbbbbb;
+}
+
+.itemregister:active, .testregister:active, .taketest:active {
+  background-color : #ccc;
+}

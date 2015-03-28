@@ -1,0 +1,76 @@
+<head>
+  <title>cat</title>
+</head>
+
+<body>
+  <div id="header">
+  
+    <h1>Test view !</h1>
+    
+    <div class="subheader">
+      <div class="itemregister">
+        Registrar Items 
+      </div>
+      <div class="testregister">
+        Registrar Tests
+      </div>
+      <div class="taketest">
+        Realizar Test
+      </div>
+    </div>
+
+</div>
+    {{#if registering}}
+      {{> regitem}}
+    {{/if}}   
+</body>
+
+<template name="regitem">
+
+    {{> registeritem}}
+        
+<div id = "pageview">
+  <div id="sidebar">
+    <ul>
+      {{#each items}}
+        {{> itemtitle}}
+      {{/each}}
+    </ul>
+  </div>
+  <div id="content">
+    {{#with item}}
+    {{> fullitem}}
+    {{/with}}
+  </div>  
+</div>
+    
+</template>
+
+<template name="itemtitle">
+<div class="text"> {{itemtitle}}
+  <button class="delete">&times;</button>
+</div>
+<br>
+</template>
+<template name="fullitem">
+    <h3>{{itemtitle}}</h3>
+    <p>{{itemtext}}</p>
+    <ul>
+    {{#each options}}
+    <li> {{.}} <button name="{{../_id}}" class="delete">&times;</button> </li>
+    <br>
+    {{/each}}
+    </ul>
+    <form class="new-option">
+      <input type="text" name="option" placeholder="Añade una opcion aqui" />
+      <input type="submit" value="registrar opcion" />
+    </form>
+</template>
+<template name="registeritem">
+
+    <form class="new-item">
+      <input type="text" name="itemtitle" placeholder="add a new item" />
+      <input type="text" name="itemtext" placeholder="add the item question" />
+      <input type="submit" value="Registrar pregunta" />
+    </form>
+</template>
