@@ -1,0 +1,44 @@
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <h2>Simulacro tipo icfes de Dascire !</h2>
+      <p>
+      En Dascire hemos creado un simulacro del icfes que funciona con la misma tecnologia que utiliza el icfes para calificar los examenes estatales, lo hemos hecho gratuito para que aquellos que quieran medir su preparacion en el camino hacia el examen puedan obtener una medicion precisa y gratuita, Disfrutenlo! .
+      </p>
+      <div class="row">
+        <div class="col-sm-4" id="itemregister">
+          <button class="btn btn-primary btn-flat">Registrar Items</button>
+      </div>
+      <div class="col-sm-4" id="testregister">
+          <button class="btn btn-primary btn-flat">Registrar Tests</button>
+      </div>
+      <div class="col-sm-4" id="taketest">
+          <button class="btn btn-primary btn-flat">Realizar Tests</button>
+      </div>
+    </div>
+    </div>
+
+</div>
+    {{#if registering}}
+      {{> regitem}}
+     {{/if}}  
+
+    {{#if tegistering}}
+      {{> regtest}}
+     {{/if}}  
+
+     {{#if mtesting}}
+     {{> mtest}}
+     {{/if}}
+
+      <!-- Your site ends -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // This command is used to initialize some elements and make them work properly
+                $.material.init();
+            });
+        </script>
+</body>
+

@@ -1,0 +1,104 @@
+<template name="mtest">
+<div id = "pageview">
+  <div id="sidebar">
+  </div>
+  <div id="content">
+<h2>Realizar Tests</h2>
+  </div>  
+</div>
+</template>
+
+<template name="regtest">
+<div id = "pageview">
+  <div id="sidebar">
+  </div>
+  <div id="content">
+<h2>Selecionar Tests</h2>
+  </div>  
+</div>
+</template>
+
+<template name="regitem">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-4">
+   <div class="well">
+     {{> registeritem}}
+     <div class="list-group">
+        <div class="list-group-item">
+        {{#each items}}
+          {{> itemtitle}}
+        {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="well">
+     {{#with item}}
+       {{> fullitem}}
+     {{/with}}
+    </div>
+  </div>
+</div>
+</div>
+</template>
+
+<template name="itemtitle">
+<div class="row-content">
+  <p class="list-group-item-text" id="text">{{itemtitle}}
+  <button type="button" class="close" id="delete">&times;</button></p>
+  <div class="list-group-separator"></div>
+</div>
+</template>
+<template name="fullitem">
+    <h3>{{itemtitle}}</h3>
+    <p>{{itemtext}}</p>
+    <ul>
+      <form class="optiondisplay">
+    {{#each options}}
+    <li> 
+    <button name="{{../_id}}" class="delete">&times;</button>
+    <input type="radio" name="{{../_id}}" class="choice" value={{.}}>{{.}}
+ </li>
+
+    {{/each}}
+  </form>
+    </ul>
+    <form class="new-option">
+      <input type="text" name="option" placeholder="Añade una opcion aqui" />
+      <input type="submit" value="registrar opcion" />
+    </form>
+
+    <h4> Opcion escojida </h4>
+    <p> {{chosenitem}}</p>
+    <h4> Estado del item </h4>
+    <p> {{itemstate}}</p>
+    <ul>
+      <h4>Etiquetas del item</h4>
+      <form class="new-tag"> 
+      <input type="text" name="tag" placeholder="Añade una etiqueta aqui" />
+      <input type="submit" value="registrar etiqueta" />
+    </form>
+    {{#each itemtags}}
+    <li> 
+    <button name="{{../_id}}" class="deletet">&times;</button>
+    {{.}}
+ </li>
+    {{/each}}
+    </ul>
+</template>
+<template name="registeritem">
+
+<div class="form-group" id="new-item">
+  <input class="form-control floating-label" id="focusedInput" placeholder="Titulo" data-hint="Escribe un titulo descriptivo para tu item" type="text" name="itemtitle">
+  <input class="form-control floating-label" id="focusedInput" placeholder="Texto" data-hint="Escribe un texto para tu item" type="text" name="itemtext">
+  <button type="submit" class="btn btn-primary btn-xs">Registrar</button>
+</div>
+
+<form class="new-item">
+      <input type="text" name="itemtitle" placeholder="add a new item" />
+      <input type="text" name="itemtext" placeholder="add the item question" />
+      <input type="submit" value="Registrar pregunta" />
+    </form>
+</template>
